@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<title>NTA Report — 2026-03-25 14:55</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0;padding:0;box-sizing:border-box; }
+  body { background:#0d1117;color:#e6edf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;padding:32px; }
+  h1 { font-size:24px;font-weight:600;margin-bottom:4px; }
+  .sub { font-family:'JetBrains Mono',monospace;font-size:12px;color:#8b949e;margin-bottom:32px; }
+  .grid { display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px; }
+  .stat { background:#161b22;border:1px solid #21262d;border-radius:8px;padding:16px; }
+  .stat-label { font-size:11px;color:#8b949e;text-transform:uppercase;letter-spacing:.05em;font-family:'JetBrains Mono',monospace;margin-bottom:6px; }
+  .stat-val { font-size:28px;font-weight:600;font-family:'JetBrains Mono',monospace; }
+  table { width:100%;border-collapse:collapse;margin-bottom:32px; }
+  th { background:#161b22;padding:10px 16px;font-size:11px;font-family:'JetBrains Mono',monospace;color:#8b949e;text-transform:uppercase;letter-spacing:.05em;text-align:left;border-bottom:1px solid #21262d; }
+  td { padding:10px 16px;border-bottom:1px solid #21262d;font-size:13px;vertical-align:top; }
+  tr:hover td { background:#161b22; }
+  .section-title { font-size:16px;font-weight:600;margin-bottom:12px; }
+</style></head><body>
+<h1>🔍 Network Traffic Analysis Report</h1>
+<div class="sub">Generated 2026-03-25 14:55:44 | Tool: NTA v1.0 | Author: Yash</div>
+
+<div class="grid">
+  <div class="stat"><div class="stat-label">Total Packets</div><div class="stat-val">447</div></div>
+  <div class="stat"><div class="stat-label">Data Volume</div><div class="stat-val">308KB</div></div>
+  <div class="stat"><div class="stat-label">Alerts</div><div class="stat-val" style="color:#f85149;">8</div></div>
+  <div class="stat"><div class="stat-label">Protocols</div><div class="stat-val">4</div></div>
+</div>
+
+<div class="section-title">⚠️ Security Alerts</div>
+<table><thead><tr><th>Severity</th><th>Alert</th><th>Detail</th><th>Mitigation</th><th>Time</th></tr></thead>
+<tbody>
+            <tr>
+              <td><span style="color:#d29922;font-weight:600;">HIGH</span></td>
+              <td>Port Scan Detected</td>
+              <td style="font-size:12px;color:#8b949e;">192.168.1.100 contacted 15 distinct ports: 21, 22, 23, 25, 80, 443, 445, 3306, 3389, 4444...</td>
+              <td style="font-size:12px;color:#3fb950;">Block source IP at perimeter firewall. Investigate host for lateral movement.</td>
+              <td style="font-size:12px;color:#484f58;">14:55:44</td>
+            </tr>
+            <tr>
+              <td><span style="color:#d29922;font-weight:600;">HIGH</span></td>
+              <td>Port Scan Detected</td>
+              <td style="font-size:12px;color:#8b949e;">192.168.1.100 contacted 16 distinct ports: 21, 22, 23, 25, 80, 443, 445, 3306, 3389, 4444...</td>
+              <td style="font-size:12px;color:#3fb950;">Block source IP at perimeter firewall. Investigate host for lateral movement.</td>
+              <td style="font-size:12px;color:#484f58;">14:55:44</td>
+            </tr>
+            <tr>
+              <td><span style="color:#f85149;font-weight:600;">CRITICAL</span></td>
+              <td>SYN Flood Suspected</td>
+              <td style="font-size:12px;color:#8b949e;">203.0.113.9 sent 100+ SYN packets (no ACK).</td>
+              <td style="font-size:12px;color:#3fb950;">Enable SYN cookies on target. Rate-limit source at firewall.</td>
+              <td style="font-size:12px;color:#484f58;">14:55:44</td>
+            </tr>
+            <tr>
+              <td><span style="color:#d29922;font-weight:600;">HIGH</span></td>
+              <td>Suspicious Port Contact</td>
+              <td style="font-size:12px;color:#8b949e;">10.0.0.55 → 192.168.99.1:4444 (Metasploit default)</td>
+              <td style="font-size:12px;color:#3fb950;">Block port 4444 egress. Investigate 10.0.0.55 for malware/C2.</td>
+              <td style="font-size:12px;color:#484f58;">14:55:44</td>
+            </tr>
+            <tr>
+              <td><span style="color:#388bfd;font-weight:600;">MEDIUM</span></td>
+              <td>Telnet Usage Detected</td>
+              <td style="font-size:12px;color:#8b949e;">10.0.0.30 is using Telnet (port 23) — credentials travel in cleartext.</td>
+              <td style="font-size:12px;color:#3fb950;">Disable Telnet. Replace with SSH.</td>
+              <td style="font-size:12px;color:#484f58;">14:55:44</td>
+            </tr>
+            <tr>
+              <td><span style="color:#d29922;font-weight:600;">HIGH</span></td>
+              <td>Malicious Payload Pattern</td>
+              <td style="font-size:12px;color:#8b949e;">10.0.0.99 → 10.0.0.1 | Pattern: (?i)(UNION.*SELECT|DROP.*TABLE|1=1) | Snippet: GET /?id=1' UNION SELECT username,passwor</td>
+              <td style="font-size:12px;color:#3fb950;">Quarantine source host. Perform full forensic analysis.</td>
+              <td style="font-size:12px;color:#484f58;">14:55:44</td>
+            </tr>
+            <tr>
+              <td><span style="color:#d29922;font-weight:600;">HIGH</span></td>
+              <td>Malicious Payload Pattern</td>
+              <td style="font-size:12px;color:#8b949e;">10.0.0.99 → 10.0.0.1 | Pattern: (?i)(cmd\.exe|powershell|/bin/sh|/bin/bash) | Snippet: POST /upload cmd.exe /c powershel</td>
+              <td style="font-size:12px;color:#3fb950;">Quarantine source host. Perform full forensic analysis.</td>
+              <td style="font-size:12px;color:#484f58;">14:55:44</td>
+            </tr>
+            <tr>
+              <td><span style="color:#d29922;font-weight:600;">HIGH</span></td>
+              <td>Malicious Payload Pattern</td>
+              <td style="font-size:12px;color:#8b949e;">10.0.0.99 → 10.0.0.1 | Pattern: (?i)(wget|curl).*(http) | Snippet: User-Agent: curl/wget http://evil.com/malware.sh</td>
+              <td style="font-size:12px;color:#3fb950;">Quarantine source host. Perform full forensic analysis.</td>
+              <td style="font-size:12px;color:#484f58;">14:55:44</td>
+            </tr></tbody></table>
+
+<div class="section-title">📊 Protocol Distribution</div>
+<table><thead><tr><th>Protocol</th><th>Packets</th><th>Share</th></tr></thead>
+<tbody><tr><td>HTTPS</td><td style="color:#38bdf8;">200</td><td>44.7%</td></tr><tr><td>TCP</td><td style="color:#38bdf8;">106</td><td>23.7%</td></tr><tr><td>HTTP</td><td style="color:#38bdf8;">80</td><td>17.9%</td></tr><tr><td>DNS</td><td style="color:#38bdf8;">41</td><td>9.2%</td></tr></tbody></table>
+</body></html>
