@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>📝 Register</h2>
+{% if error %}<p class="error">{{ error }}</p>{% endif %}
+<input type="text" name="username" placeholder="Username" id="u">
+<input type="password" name="password" placeholder="Password" id="p">
+<button onclick="doRegister()">Register</button>
+<p>Have account? <a href="/login">Login</a></p>
+<script>
+function doRegister(){
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = '/register';
+    const u = document.createElement('input');
+    u.name = 'username'; u.value = document.getElementById('u').value;
+    const p = document.createElement('input');
+    p.name = 'password'; p.value = document.getElementById('p').value;
+    form.appendChild(u); form.appendChild(p);
+    document.body.appendChild(form); form.submit();
+}
+</script>
+{% endblock %}
