@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>🔐 SecureVault Login</h2>
+{% if error %}<p class="error">{{ error }}</p>{% endif %}
+<input type="text" name="username" placeholder="Username" id="u">
+<input type="password" name="password" placeholder="Password" id="p">
+<button onclick="doLogin()">Login</button>
+<p>No account? <a href="/register">Register</a></p>
+<script>
+function doLogin(){
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = '/login';
+    const u = document.createElement('input');
+    u.name = 'username'; u.value = document.getElementById('u').value;
+    const p = document.createElement('input');
+    p.name = 'password'; p.value = document.getElementById('p').value;
+    form.appendChild(u); form.appendChild(p);
+    document.body.appendChild(form); form.submit();
+}
+</script>
+{% endblock %}
