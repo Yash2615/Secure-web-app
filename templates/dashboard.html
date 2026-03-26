@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<nav>
+    <span>👋 Hello, {{ username }}</span>
+    <a href="/logout" style="float:right">Logout</a>
+</nav>
+<h2>🔒 My Secure Notes</h2>
+<input type="text" placeholder="Note title" id="t">
+<textarea placeholder="Note content" id="c" rows="4"></textarea>
+<button onclick="addNote()">Add Note</button>
+<hr style="border-color:#e94560; margin:20px 0">
+{% for note in notes %}
+<div style="background:#0f3460; padding:15px; margin:10px 0; border-radius:5px;">
+    <h3>{{ note.title }}</h3>
+    <p>{{ note.content }}</p>
+    <small>{{ note.created_at }}</small>
+    <a href="/delete/{{ note.id }}" style="color:#e94560; float:right">Delete</a>
+</div>
+{% endfor %}
+<script>
+function addNote(){
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = '/dashboard';
+    const t = document.createElement('input');
+    t.name = 'title'; t.value = document.getElementById('t').value;
+    const c = document.createElement('input');
+    c.name = 'content'; c.value = document.getElementById('c').value;
+    form.appendChild(t); form.appendChild(c);
+    document.body.appendChild(form); form.submit();
+}
+</script>
+{% endblock %}
